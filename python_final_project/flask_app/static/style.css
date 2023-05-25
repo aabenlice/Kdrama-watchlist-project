@@ -1,0 +1,53 @@
+body {
+    background-color: rgb(255, 255, 255);
+    color: rgb(47, 44, 57);
+    font-family: "Helvetica", "Arial", sans-serif;
+    font-size: 1.3em;
+}
+
+ul {
+list-style-type: none;
+margin: 0;
+padding: 0;
+overflow: hidden;
+background-color: rgb(226, 214, 214);
+}
+
+
+li {
+float: left;
+}
+
+li a {
+display: block;
+color: rgb(47, 44, 57);
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
+}
+
+li a:hover {
+    background-color: white;
+}
+table {
+    background-color: white;
+    margin: 10px;
+    text-align: center;
+}
+
+td :hover {
+    background-color: rgb(226, 214, 214);
+    border-radius: 10px;
+}
+
+.btn {
+    color: rgb(167, 145, 188);
+    height: 25px;
+    background-color: rgb(47, 44, 57);
+    border-radius: 10px;
+}
+
+th {
+    text-align:center;
+    padding: 20px;
+}

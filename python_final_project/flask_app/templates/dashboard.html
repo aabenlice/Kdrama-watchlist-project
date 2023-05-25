@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="static/style.css">
+    <style>
+        h2 {
+            padding-left: 50px;
+        }
+        p {
+            font-size: small;
+            padding-left: 50px;
+        }
+        th {
+            font-size: medium;
+        }
+    </style>
+</head>
+<body>
+    <div class="container-dashboard">
+        <ul>
+            <li><a style="text-decoration: none;" href="/new">Add to Watchlist!</a></li>
+            <li><a style="text-decoration: none;"href="/view_mine/{{ users.id }}">My Shows</a></li>
+            <li><a style="text-decoration: none;"href="/reviews">Reviews</a></li>
+            <li><a style="text-decoration: none;"href="/logout">Logout</a></li>
+        </ul>
+        <h2>Welcome {{users.first_name}}!</h2>
+        <p>Here are your current kdramas you are watching:</p>
+        <div class="all-kdramas">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col">Episodes</th>
+                        <th scope="col">Genre</th>
+                        <th scope="col">Completion</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for kdrama in kdramas %}
+                    {% if kdrama.completion != 'completed' %}
+                    <tr>
+                        <td>{{ kdrama.title }}</td>
+                        <td>{{ kdrama.duration }}</td>
+                        <td>{{ kdrama.genre }}</td>
+                        <td>{{ kdrama.completion }}</td>
+                        {% if kdrama.user_id == session.users_id %}
+                        <td><a style="text-decoration: none; color: black;"href="/{{ kdrama.id }}/edit">Edit</a> | <a style="text-decoration: none; color: black;"href="/delete/{{ kdrama.id }}">Delete</a></td>
+                    </tr>
+                    {% endif %}
+                        {% else %}
+                        <span></span>
+                        {% endif %}
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>

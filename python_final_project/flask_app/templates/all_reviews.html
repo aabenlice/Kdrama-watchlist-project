@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reviews</title>
+    <link rel="stylesheet" href="static/style.css">
+</head>
+<body>
+    <div class="container-reviews">
+        <ul>
+            <li><a style="text-decoration: none;"href="/dashboard">Dashboard</a></li>
+            <li><a style="text-decoration: none;" href="/new">Add to Watchlist!</a></li>
+            <li><a style="text-decoration: none;"href="/view_mine/{{ users.id }}">My Shows</a></li>
+            <li><a style="text-decoration: none;"href="/logout">Logout</a></li>
+        </ul>
+        <div class="reviews-card">
+            <h2>Our Reviews!</h2>
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Title</th>
+                        <th scope="col">Episodes</th>
+                        <th scope="col">Genre</th>
+                        <th scope="col">Completion</th>
+                        <th scope="col">Reviews</th>
+                        <th scope="col">User</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for reviews in reviews %}
+                    <tr>
+                        <td>{{ reviews.title }}</td>
+                        <td>{{ reviews.duration }}</td>
+                        <td>{{ reviews.genre }}</td>
+                        <td>{{ reviews.completion }}</td>
+                        <td>{{ reviews.thoughts }}</td>
+                        <td>{{ reviews.user.first_name}} {{reviews.user.last_name}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+    
+    
+    
+</body>
+</html>
